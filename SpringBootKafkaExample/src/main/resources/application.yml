@@ -1,0 +1,31 @@
+spring:
+  kafka:
+    bootstrap-servers: ${BOOTSTRAP_SERVERS}
+    properties:
+      basic:
+        auth:
+          credentials:
+            source: USER_INFO
+          user:
+            info: ${SCHEMA_REGISTRY_AUTH_INFO}
+      schema:
+        registry:
+          url: ${SCHEMA_REGISTRY_URL}
+      security:
+        protocol: SASL_SSL
+      sasl:
+        jaas:
+          config: ${SASL_JAAS_CONFIG}
+        mechanism: PLAIN
+    producer:
+      key-serializer: org.apache.kafka.common.serialization.StringSerializer
+      value-serializer: io.confluent.kafka.serializers.KafkaAvroSerializer
+    consumer:
+      group-id: ${GROUP_ID}
+      auto-offset-reset: earliest
+      key-deserializer: org.apache.kafka.common.serialization.StringDeserializer
+      value-deserializer: io.confluent.kafka.serializers.KafkaAvroDeserializer
+      properties:
+        specific:
+          avro:
+            reader: true

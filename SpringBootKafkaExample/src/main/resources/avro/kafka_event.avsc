@@ -1,0 +1,43 @@
+{
+  "namespace": "com.example.kafka.spring.avro",
+  "fields": [
+    {
+      "name": "id",
+      "type": "string"
+    },
+    {
+      "name": "firstName",
+      "type": "string"
+    },
+    {
+      "name": "lastName",
+      "type": "string"
+    },
+    {
+      "name": "email",
+      "type": ["null", "string"],
+      "default": null
+    },
+    {
+      "name": "dateOfBirth",
+      "type": ["null", "long"],
+      "logicalType": "date"
+    },
+    {
+      "name": "phoneNumber",
+      "type": ["null", "string"],
+      "default": null
+    },
+    {
+      "name": "lang",
+      "type": "string"
+    },
+    {
+      "name": "greetings",
+      "type": ["null", "string"],
+      "default": null
+    }
+  ],
+  "name": "person",
+  "type": "record"
+}
